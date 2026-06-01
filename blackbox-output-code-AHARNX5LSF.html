@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GayaKita - Lifestyle & Inspiration</title>
+    <!-- Link Font Google (Poppins & Playfair Display) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Icon Library (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS DASAR --- */
+        :root {
+            --primary: #2c2c2c;
+            --accent: #d4a373;
+            --bg: #f9f9f9;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- NAVIGASI --- */
+        nav {
+            background: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background: #b08d55;
+        }
+
+        /* --- SECTION GENERAL --- */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title .line {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 0 auto;
+        }
+
+        /* --- FASHION SECTION --- */
+        .fashion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            overflow: hidden;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- TRAVEL SECTION --- */
+        .travel-section {
+            background-color: var(--white);
+        }
+
+        /* --- LIFESTYLE TIPS --- */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .tip-icon {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none; /* Untuk simplify, menu disembunyikan di HP */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGASI -->
+    <nav>
+        <div class="container nav-content">
+            <div class="logo">GAYA<span style="color:var(--accent)">KITA</span>.</div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#fashion">Fashion</a></li>
+                <li><a href="#travel">Perjalanan</a></li>
+                <li><a href="#tips">Tips Hidup</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO HEADER -->
+    <header id="home" class="hero">
+        <div class="container hero-text">
+            <h1>hidup Dengan Gaya</h1>
+            <p>Temukan inspirasi terbaik untuk perjalanan, busana, dan kehidupan sehari-hari Anda.</p>
+            <a href="#fashion" class="btn">Jelajahi Sekarang</a>
+        </div>
+    </header>
+
+    <!-- FASHION SECTION -->
+    <section id="fashion" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tren Fashion</h2>
+                <div class="line"></div>
+            </div>
+            <div class="fashion-grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Fashion 1">
+                    <div class="card-content">
+                        <h3>Mix & Match Modern</h3>
+                        <p>Cara memadukan warnaNetral agar terlihat mahal dan elegan.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Fashion 2">
+                    <div class="card-content">
+                        <h3>OOTD Ke Kantor</h3>
+                        <p>Rekomendasi outfit professional sekaligus santai.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Fashion 3">
+                    <div class="card-content">
+                        <h3>Gaya Varsity</h3>
+                        <p>Jaket baseball kembali tren di tahun 2024 ini.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRAVEL SECTION -->
+    <section id="travel" class="section-padding travel-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Destinasi Menjelajah</h2>
+                <div class="line"></div>
+            </div>
+            <div class="fashion-grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Pantai">
+                    <div class="card-content">
+                        <h3>Pantai Tersembunyi</h3>
+                        <p>5 pantai di Indonesia yang belum banyak orang kenal.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Gunung">
+                    <div class="card-content">
+                        <h3>Petualangan Alam</h3>
+                        <p>Tips Mendaki Gunung untuk Pemula agar tetap aman.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Road Trip">
+                    <div class="card-content">
+                        <h3>Liburan Keluarga</h3>
+                        <p>Destinasi ramah anak untuk Akhir pekanimu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARA HIDUP (LIFESTYLE TIPS) -->
+    <section id="tips" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cara Hidup Lebih Baik</h2>
+                <div class="line"></div>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-item">
+                    <i class="fas fa-leaf tip-icon"></i>
+                    <div>
+                        <h3>Gaya Hidup Zero Waste</h3>
+                        <p>Simple langkah untuk mengurangi sampah plastik sehari-hari.</p>
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <i class="fas fa-coffee tip-icon"></i>
+                    <div>
+                        <h3>Produktifitas Pagi</h3>
+                        <p>Rutinitas pagi yang dilakukan orang sukses dunia.</p>
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <i class="fas fa-heart tip-icon"></i>
+                    <div>
+                        <h3>Kesehatan Mental</h3>
+                        <p>Cara menangani stres dan burnout di pekerjaan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2024 GayaKita Lifestyle. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- S
